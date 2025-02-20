@@ -15,7 +15,7 @@ def __init__(sb, bid, bname, baddr, bphone):
 
 connection = psycopg2.connect(
         dbname="postgres",
-        user="postgres",
+         user="postgres",
         password="Saibaba.1915",
         host="localhost",
         port="5433"
