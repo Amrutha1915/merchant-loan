@@ -16,40 +16,37 @@ def __init__(sb, first_name, last_name, addr, phone):
         sb.last_name = last_name
         sb.address = addr
         sb.phone = phone
-
+        Member.number_of_members += 1
 def create_member(sb):
         cursor = connection.cursor()
-        cursor.execute("""insert into member(first_name, last_name, addr, phone)
-                          values(alice, wonderland, 123 oak, 1234567890)
-                                 (john, doe, 456 court, 0987654321)
-                                 (josph, stalin, 789 drive, 6789054321)
-                                                             """),
-        ((sb.first_name, sb.last_name, sb.address, sb.phone))
-connection.commit()
+        query=f"insert into member(first_name,last_name,addr,phone)"
+        "values(alice, wonderland, 123 oak, 1234567890),(john, doe, 456 court, 0987654321),(josph, stalin, 789 drive, 6789054321)" .format((sb.first_name, sb.last_name, sb.address, sb.phone))
+        cursor.execute(query)
+        cursor.commit()
 print('done')
-
     # retrieve member
 def retrieve_member(sb):
     cursor = connection.cursor()
-    cursor.execute("""select * from member where first_name = alice""",
-                       (sb.first_name,))
-connection.commit()
+    query=f"select * from member where first_name = alice" .format(sb.first_name),
+    cursor.execute(query)
+    cursor.commit()
 print('done')
 
     # update member
 def update_member(sb):
         cursor = connection.cursor()
-        cursor.execute("""update member set first_name = jack where last_name = doe""",
-                       (sb.first_name, sb.first_name))
-        connection.commit()
+        query=f"update member set first_name = jack where last_name = doe" .format(sb.first_name, sb.last_name)
+     
+        cursor.execute(query)
+        cursor.commit()
 print('done')
 
     # delete member
 def delete_member(sb):
-     cursor = connection.cursor()
-     cursor.execute("""delete from member where first_name = %s""",
-                       (sb.first_name,))
-     connection.commit()
+    cursor = connection.cursor()
+    query=f"delete from member where first_name = josph".format(sb.first_name)
+    cursor.execute(query)
+    cursor.commit()
 print('done')
 
-
+   

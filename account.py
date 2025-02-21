@@ -22,7 +22,7 @@ def __init__(sb, td, tdate, tamount, bid,ttype="online"):
         # create_transaction
 def create_transaction(sb):
       cursor=connection.cursor()
-      cursor.execute("""insert into transcation(transaction_id, transaction_date, amount, type, branch_id)
+      query="insert into transcation(transaction_id, transaction_date, amount, type, branch_id)"
     #values(?,?,?,?)""", )(sb.transaction_id, sb.transaction_date, sb.transaction_amount, sb.transaction_type, sb.branch_id)
       cursor.commit()
 print('done')
