@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-add = lambda x, y: x + y
-print(add(3, 4))
-=======
 #class branch:(Sb)
 class branch:
     #class variable
@@ -19,7 +15,7 @@ def __init__(sb, bid, bname, baddr, bphone):
 
 connection = psycopg2.connect(
         dbname="postgres",
-        user="postgres",
+         user="postgres",
         password="Saibaba.1915",
         host="localhost",
         port="5433"
@@ -57,4 +53,3 @@ def retrieve_branch(sb):
         cursor.commit()
         
 print('done')
->>>>>>> ae1ce7a37b4d47460002c32ab2720f1046946bec
