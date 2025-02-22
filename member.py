@@ -16,7 +16,7 @@ def __init__(sb, first_name, last_name, addr, phone):
         sb.last_name = last_name
         sb.address = addr
         sb.phone = phone
-        Member.number_of_members += 1
+      
 def create_member(sb):
         cursor = connection.cursor()
         query=f"insert into member(first_name,last_name,addr,phone)"
