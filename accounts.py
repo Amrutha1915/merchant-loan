@@ -11,7 +11,7 @@ class Account:
         sb.account_balance = abalance
         sb.branch_id = bid
 
-        connection = psycopg2.connect(
+connection = psycopg2.connect(
         dbname="postgres",
         dbuser="postgres",
         password="Saibaba.1915",
@@ -29,7 +29,7 @@ def create_account(sb):
 print('done')
 
 #retrive account
-def retrive_account_id(sd):
+def retrive_account_id(sb):
  cursor=connection.cursor()
  query=f"SELECT * FROM account WHERE account_id = ?". format(sb.account_id)
  cursor.execute(query)
